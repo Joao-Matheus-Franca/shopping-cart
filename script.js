@@ -29,6 +29,8 @@ const createProductItemElement = ({ sku, name, image }) => {
 const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
 
 const cartItemClickListener = (event) => {
+  const father = event.target.parentNode;
+  father.removeChild(event.target);
 };
 
 const car = document.querySelector('.cart__items');
