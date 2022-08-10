@@ -28,12 +28,13 @@ const createProductItemElement = ({ sku, name, image }) => {
 
 const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
 
+const car = document.querySelector('.cart__items');
+
 const cartItemClickListener = (event) => {
   const father = event.target.parentNode;
   father.removeChild(event.target);
+  saveCartItems(car.innerHTML);
 };
-
-const car = document.querySelector('.cart__items');
 
 const createCartItemElement = ({ sku, name, salePrice }) => {
   const li = document.createElement('li');
@@ -48,7 +49,9 @@ const addCart = async (event) => {
   const item = await fetchItem(ids);
   const { id, title, price } = item;
   const object = { sku: id, name: title, salePrice: price };
-  car.appendChild(createCartItemElement(object));
+  const saved = createCartItemElement(object);
+  car.appendChild(saved);
+  saveCartItems(car.innerHTML);
   return object;
 };
 
@@ -62,4 +65,9 @@ const addItens = async () => {
 
 addItens();
 
-window.onload = () => { };
+window.onload = () => { 
+  const saved = getSavedCartItems();
+  car.innerHTML = saved;
+  const children = document.querySelectorAll('.cart__item');
+  children.forEach((c) => c.addEventListener('click', cartItemClickListener));
+};
