@@ -12,6 +12,10 @@ const createCustomElement = (element, className, innerText) => {
   return e;
 };
 
+const count = createCustomElement('p', 'total-price', 0);
+const bigFather = document.querySelector('.container');
+bigFather.appendChild(count);
+
 const itens = document.querySelector('.items');
 
 const createProductItemElement = ({ sku, name, image }) => {
@@ -64,6 +68,12 @@ const addItens = async () => {
 };
 
 addItens();
+
+const clearButton = document.querySelector('.empty-cart');
+clearButton.addEventListener('click', () => {
+  car.innerHTML = '';
+  saveCartItems(car.innerHTML);
+});
 
 window.onload = () => { 
   const saved = getSavedCartItems();
