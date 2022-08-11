@@ -68,8 +68,8 @@ const addCart = async (event) => {
 
 const addItens = async () => {
   const load = document.createElement('p');
-  load.className = 'loading'
-  load.innerText = 'carregando...'
+  load.className = 'loading';
+  load.innerText = 'carregando...';
   itens.appendChild(load);
   const produtos = await fetchProducts('computador');
   const modder = produtos.results.map((e) => ({ sku: e.id, name: e.title, image: e.thumbnail }));
