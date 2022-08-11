@@ -13,7 +13,7 @@ const createCustomElement = (element, className, innerText) => {
 };
 
 const count = createCustomElement('p', 'total-price', 0);
-const bigFather = document.querySelector('.container');
+const bigFather = document.querySelector('.cart');
 bigFather.appendChild(count);
 
 const itens = document.querySelector('.items');
@@ -37,6 +37,10 @@ const car = document.querySelector('.cart__items');
 const cartItemClickListener = (event) => {
   const father = event.target.parentNode;
   father.removeChild(event.target);
+  const text = event.target.innerText;
+  const price = text.split('|')[2].split(' ')[2].replace('$', '');
+  const removeItem = Number(count.innerText) - Number(price);
+  count.innerHTML = removeItem;
   saveCartItems(car.innerHTML);
 };
 
@@ -56,6 +60,9 @@ const addCart = async (event) => {
   const saved = createCartItemElement(object);
   car.appendChild(saved);
   saveCartItems(car.innerHTML);
+  const totalPrice = Number(count.innerText) + price;
+  console.log(totalPrice);
+  count.innerText = totalPrice;
   return object;
 };
 
