@@ -85,6 +85,7 @@ const clearButton = document.querySelector('.empty-cart');
 clearButton.addEventListener('click', () => {
   car.innerHTML = '';
   saveCartItems(car.innerHTML);
+  count.innerText = 0;
 });
 
 window.onload = () => { 
