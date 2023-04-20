@@ -2,8 +2,10 @@
 ## 📝 Contexto: 
 * Projeto individual realizado no bloco de Front-end do curso de desenvolvimento Web da
 <a href="https://www.betrybe.com/">Trybe</a>
-* A estilização desse projeto foi disponibilizada pela Trybe
-* Os mocks desse projeto foram disponibilizados pela Trybe
+* A estilização desse projeto foi disponibilizada pela
+<a href="https://www.betrybe.com/">Trybe</a>
+* Os mocks desse projeto foram disponibilizados pela
+<a href="https://www.betrybe.com/">Trybe</a>
 ## 🎯 Objetivos: 
 * Aplicar o versionamento de códigos com o uso dos princípios do Git e GitHub 
 * Criar uma aplicação Web com o uso dos fundamentos de HTML, CSS e JavaScript
